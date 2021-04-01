@@ -1,0 +1,117 @@
+<html>
+<head>
+<script>
+	digitalData = {}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="//assets.adobedtm.com/0d7a963db5ca/10de7c415cae/launch-31310210d5dd-development.min.js" async></script>
+<script>
+
+</script><title>Thank you</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+<section>
+		<div class="container">
+<br><br>
+<h1>Thank You for shopping with Us!</h1>
+
+<script type="text/javascript">
+	var formStart = 0;
+	function checkFormStart() {
+		if(formStart == 1)
+			_satellite.track('feedbackStart');
+	}
+	$(document).ready(function() {
+		$('#feedback > span > label > input[type=radio]').click(function(){formStart = formStart+1;checkFormStart();});
+		$('#feedback > span > textarea').click(function(){formStart = formStart+1;checkFormStart();});
+	});
+
+	function validateRating(){
+	var rating = document.feedback.rating.value;
+	var comment = document.feedback.comment.value;
+				if(rating == ""||comment == ""||comment == "Comment..."){
+					_satellite.track('feedbackFail')
+					return false;
+				}
+				else{
+					$('#feedback').text('Have a nice day :)');
+					_satellite.track('feedbackSuccess')
+					return true;
+				}
+			}
+</script>
+<br><br><br>
+<div id="feedback" class="payment-options">
+	<h4>How was your experience on the scale of 1 to 5?</h4><br>
+	<form name="feedback" id="feedback" onsubmit="return validateRating()">
+		<span>
+			<label><input type="radio" name="rating" value="1"> 1</label>
+		</span>
+		<span>
+			<label><input type="radio" name="rating" value="2"> 2</label>
+		</span>
+		<span>
+			<label><input type="radio" name="rating" value="3"> 3</label>
+		</span>
+		<span>
+			<label><input type="radio" name="rating" value="4"> 4</label>
+		</span>
+		<span>
+			<label><input type="radio" name="rating" value="5"> 5</label>
+		</span><br><br>
+		<span>
+			<br><textarea rows="4" cols="50" name="comment">Comment...</textarea>
+		</span>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+	</div>
+
+</div>
+</section>
+
+
+
+
+<script>
+$(document).ready(function(){
+  $('#header > div.header-bottom > div > div > div.col-sm-9 > div.mainmenu.pull-left > ul > li > ul > li > a').click(function(){
+
+      var L1 = $(this).parent().parent().parent().children('a').text();
+      var L2 = $(this).text();
+      digitalData.clickElement = {L1: L1, L2:L2};
+      _satellite.track('HeaderClickL2');
+  });
+
+  $('#header > div.header-bottom > div > div > div.col-sm-9 > div.mainmenu.pull-left > ul > li > a').click(function(){
+
+      var L1 = $(this).text();
+      digitalData.clickElement = {L1: L1};
+     _satellite.track('HeaderClickL1'); 
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+  $('#footer > div.footer-widget > div > div > div > div > ul > li > a').click(function(){
+      var L1 = $(this).parent().parent().parent().children('h2').text();
+      var L2 = $(this).text();
+      digitalData.clickElement = {L1: L1, L2:L2};
+      _satellite.track('FooterClick');
+  });
+});
+</script>
+</body>
+</html>

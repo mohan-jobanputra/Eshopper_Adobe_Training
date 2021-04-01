@@ -1,0 +1,40 @@
+s.linkTrackVars = "eVar1,eVar2,eVar3,eVar4,events,prop1,prop2,prop3,prop4,eVar10,eVar11,eVar12,eVar22,prop22,eVar15,eVar25";
+
+s.linkTrackEvents = "event4";
+
+s.usePlugins=true
+
+s.eVar4 = s.getNewRepeat(90); 
+
+s.prop4=s_getLoadTime();
+
+s.eVar15 = s.getVisitNum()
+
+s.eVar3 = getPageName();
+s.prop3 = getPageName();
+
+s.eVar10 = s.getQueryParam('utm_source');
+s.eVar11 = s.getQueryParam('utm_medium');
+s.eVar12 = s.getQueryParam('utm_campaign');
+
+var coordinates = s.getGeoCoordinates();
+
+s.eVar22 = coordinates;
+s.prop22 = coordinates;
+
+function s_getLoadTime() {
+ if (!window.s_loadT) {
+     var b = new
+     Date().getTime(), o = window.performance ? performance.timing : 0, a = o ? o.requestStart : window.inHeadTS || 0;
+     s_loadT = a ? Math.round((b - a) / 100) : ''
+ }
+ return s_loadT
+}
+
+s.eVar1 = _satellite.getVar("PageName");
+s.prop1 = _satellite.getVar("PageName");
+s.eVar2 = _satellite.getVar("PageURL");
+s.prop2 = _satellite.getVar("PageURL");
+
+s.eVar25 = _satellite.getVar("MCVID");
+s.events = "event4";

@@ -1,0 +1,24 @@
+$('#header > div.header-bottom > div > div > div.col-sm-3 > div > input[type=text]').on("keypress", function(e) {
+  if (e.keyCode == 13) {
+    s.linkTrackVars = "eVar7,eVar1,eVar21,eVar2,events,prop1,prop2,eVar20";
+    s.linkTrackEvents = "event7";
+    
+    s.eVar7 = $(this).val();
+    s.getAndPersistValue(s.eVar7,"last_searched_keyword",28);
+    
+    s.events = "event7";
+    
+    s.prop1 = _satellite.getVar("PageName");
+    s.eVar1 = _satellite.getVar("PageName");
+
+    s.prop2 = _satellite.getVar("PageURL");
+    s.eVar2 = _satellite.getVar("PageURL");
+    
+
+    s.eVar20 = s.getVisitDuration();
+    
+    s.tl(true,'o','site_search');
+    
+    return false;
+  }
+});
